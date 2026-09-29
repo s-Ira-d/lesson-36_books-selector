@@ -1,13 +1,283 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --paper: #f5f1e8;
+  --paper-light: #fbf9f4;
+  --ink: #292722;
+  --muted: #77736a;
+  --line: #d8d2c5;
+  --accent: #8a7355;
+  --accent-dark: #62503a;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+}
+
+/* MAIN */
+
+.app {
+  min-height: 100vh;
+  padding: 50px 7%;
+}
+
+/* HEADER */
+
+.header {
+  max-width: 1100px;
+  margin: 0 auto 40px;
+}
+
+.header h1 {
+  margin: 0;
+  font-family: "Libre Baskerville", serif;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.header p {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* FILTER */
+
+.filter {
+  max-width: 1100px;
+  margin: 0 auto 35px;
+
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--line);
+}
+
+.filter__search,
+.filter__select {
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper-light);
+
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+
+  padding: 0 14px;
+
+  outline: none;
+  transition: 0.2s;
+}
+
+.filter__search {
+  min-width: 280px;
+}
+
+.filter__search:focus,
+.filter__select:focus {
+  border-color: var(--accent);
+}
+
+.filter__button {
+  height: 44px;
+  padding: 0 20px;
+
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+
+  background: transparent;
+  color: var(--accent-dark);
+
+  cursor: pointer;
+  font-weight: 500;
+
+  transition: 0.2s;
+}
+
+.filter__button:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* BOOK LIST */
+
+.book-list {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* BOOK CARD */
+
+.book-card {
+  min-height: 230px;
+
+  background: var(--paper-light);
+
+  border: 1px solid var(--line);
+  border-radius: 3px;
+
+  padding: 28px;
+
+  position: relative;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.book-card::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 5px;
+
+  background: var(--accent);
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 8px 20px rgba(50, 45, 35, 0.08);
+}
+
+.book-card__content {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card__title {
+  margin: 0 0 12px;
+
+  font-family: "Libre Baskerville", serif;
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+.book-card__author {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.book-card__info {
+  margin-top: auto;
+
+  padding-top: 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 12px;
+}
+
+.book-card__genre {
+  color: var(--accent-dark);
+
+  padding: 5px 9px;
+
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+
+.book-card__rating {
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+/* READING STATUS */
+
+.reading-status {
+  max-width: 1100px;
+  margin: 50px auto 0;
+
+  padding: 30px;
+
+  background: var(--paper-light);
+  border-top: 3px solid var(--accent);
+
+  box-shadow: 0 4px 15px rgba(50, 45, 35, 0.05);
+}
+
+.reading-status__label {
+  margin: 0;
+
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.reading-status__total {
+  margin: 15px 0 0;
+
+  font-family: "Libre Baskerville", serif;
+  font-size: 42px;
+}
+
+.reading-status__books {
+  margin: 0 0 25px;
+  color: var(--muted);
+}
+
+.reading-status__item {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 14px 0;
+
+  border-top: 1px solid var(--line);
+
+  font-size: 14px;
+}
+
+.reading-status__item strong {
+  font-family: "Libre Baskerville", serif;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .app {
+    padding: 30px 20px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .filter {
+    flex-direction: column;
+  }
+
+  .filter__search,
+  .filter__select,
+  .filter__button {
+    width: 100%;
+  }
+
+  .book-list {
+    grid-template-columns: 1fr;
+  }
 }

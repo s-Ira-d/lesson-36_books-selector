@@ -1,10 +1,16 @@
 export default function BookCard({ book }) {
   return (
-    <>
-      <h3>{book.title}</h3>
-      <h3>{book.author}</h3>
-      <p>{book.genre}</p>
-      <p>{book.rating}</p>
-    </>
+    <article className="book-card">
+      <div className="book-card__content">
+        <h3 className="book-card__title">{book.title}</h3>
+
+        <p className="book-card__author">{book.author}</p>
+
+        <div className="book-card__info">
+          <span className="book-card__genre">{book.genre}</span>
+          <span className="book-card__rating">★ {book.rating}</span>
+        </div>
+      </div>
+    </article>
   );
 }

@@ -13,18 +13,33 @@ export const ReadingStatus = () => {
   const booksCompleted = useSelector(selectCompletedBooksCount);
   const booksWantToRead = useSelector(selectWantToReadBooksCount);
   const booksPagesRead = useSelector(selectPagesRead);
+
   return (
-    <>
-      <h1>MY READING</h1>
-      <p>{booksCount} books</p>
-      <h2>Reading</h2>
-      <p>{booksReading}</p>
-      <h2>Completed</h2>
-      <p>{booksCompleted}</p>
-      <h2>Want to read</h2>
-      <p>{booksWantToRead}</p>
-      <h2>Pages read</h2>
-      <p>{booksPagesRead}</p>
-    </>
+    <aside className="reading-status">
+      <p className="reading-status__label">MY READING</p>
+
+      <h1 className="reading-status__total">{booksCount}</h1>
+      <p className="reading-status__books">books</p>
+
+      <div className="reading-status__item">
+        <span>Reading</span>
+        <strong>{booksReading}</strong>
+      </div>
+
+      <div className="reading-status__item">
+        <span>Completed</span>
+        <strong>{booksCompleted}</strong>
+      </div>
+
+      <div className="reading-status__item">
+        <span>Want to read</span>
+        <strong>{booksWantToRead}</strong>
+      </div>
+
+      <div className="reading-status__item">
+        <span>Pages read</span>
+        <strong>{booksPagesRead}</strong>
+      </div>
+    </aside>
   );
 };

@@ -20,23 +20,28 @@ export function Filter() {
   const genre = useSelector(selectGenre);
 
   return (
-    <div>
+    <div className="filter">
       <input
+        className="filter__search"
         value={search}
         onChange={(e) => dispatch(setSearch(e.target.value))}
-        placeholder="search author or books"
+        placeholder="Search books or authors..."
         type="text"
       />
+
       <select
+        className="filter__select"
         value={status}
         onChange={(e) => dispatch(setStatus(e.target.value))}
       >
-        <option value="all">all</option>
-        <option value="reading">reading</option>
-        <option value="completed">completed</option>
-        <option value="wantToRead">wantToRead</option>
+        <option value="all">All books</option>
+        <option value="reading">Reading</option>
+        <option value="completed">Completed</option>
+        <option value="wantToRead">Want to read</option>
       </select>
+
       <select
+        className="filter__select"
         value={genre}
         onChange={(e) => dispatch(setGenre(e.target.value))}
       >
@@ -46,7 +51,13 @@ export function Filter() {
           </option>
         ))}
       </select>
-      <button onClick={() => dispatch(clearFilter())}>Clear</button>
+
+      <button
+        className="filter__button"
+        onClick={() => dispatch(clearFilter())}
+      >
+        Clear
+      </button>
     </div>
   );
 }
