@@ -61,3 +61,17 @@ export const selectFilteredBooks = createSelector(
     });
   },
 );
+
+// export const selectCurrentBook = createSelector([selectBook], (books) => {
+//   const readingBook = books.find((book) => book.status === "reading");
+//   if (readingBook) {
+//     return readingBook;
+//   }
+//   const wantToReadBooks = books.filter((book) => book.status === "wantToRead");
+//   if (wantToReadBooks.length === 0) {
+//     return null;
+//   }
+//   return wantToReadBooks.reduce((bestBook, book) =>
+//     book.rating > bestBook.rating ? book : bestBook,
+//   );
+// });
