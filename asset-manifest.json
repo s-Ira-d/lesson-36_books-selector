@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/lesson-36_books-selector/static/css/main.1317a033.css",
+    "main.css": "/lesson-36_books-selector/static/css/main.82feec7d.css",
     "main.js": "/lesson-36_books-selector/static/js/main.513daef3.js",
     "index.html": "/lesson-36_books-selector/index.html",
-    "main.1317a033.css.map": "/lesson-36_books-selector/static/css/main.1317a033.css.map",
+    "main.82feec7d.css.map": "/lesson-36_books-selector/static/css/main.82feec7d.css.map",
     "main.513daef3.js.map": "/lesson-36_books-selector/static/js/main.513daef3.js.map"
   },
   "entrypoints": [
-    "static/css/main.1317a033.css",
+    "static/css/main.82feec7d.css",
     "static/js/main.513daef3.js"
   ]
 }
